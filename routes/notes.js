@@ -16,11 +16,12 @@ router.get('/',(req,res) => {
 });
 
 // POST Route for posting notes
-// POST = receiving info from user
+// POST = sending info to server & updating database
 router.post('/', (req,res) => {
     console.log(req.body);
     const newNote = {
-
+        title: req.body.title,
+        text: req.body.text
     }
 fs.readFile('./db/db.json', 'utf-8', (err, data) => {
     if(err) {
